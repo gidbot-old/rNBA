@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Course Title</key>
+	<string>author goes here</string>
+	<key>New item</key>
+	<string>Yes</string>
+	<key>New item - 2</key>
+	<string>sir</string>
+	<key>New item - 3</key>
+	<string>fasho</string>
+	<key>New item - 4</key>
+	<string>bob</string>
+	<key>New item - 5</key>
+	<string>joe</string>
+	<key>New item - 6</key>
+	<string>man</string>
+	<key>New item - 7</key>
+	<string>sir</string>
+	<key>New item - 10</key>
+	<string>- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+
+// Row display. Implementers should *always* try to reuse cells by setting each cell&apos;s reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;</string>
+	<key>New item - 11</key>
+	<string>- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+
+// Row display. Implementers should *always* try to reuse cells by setting each cell&apos;s reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;</string>
+	<key>New item - 12</key>
+	<string>- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+
+// Row display. Implementers should *always* try to reuse cells by setting each cell&apos;s reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;</string>
+	<key>New item - 8</key>
+	<string>ok</string>
+	<key>New item - 9</key>
+	<string>dude</string>
+	<key>Course2</key>
+	<string>Bobby Moinahan</string>
+</dict>
+</plist>

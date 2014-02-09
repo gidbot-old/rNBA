@@ -1,23 +1,149 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4451" systemVersion="13A461" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="m5z-iZ-GBI">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3676"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller - Timeline-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jFg-h8-tw0"/>
+                        <viewControllerLayoutGuide type="bottom" id="RcT-En-cXx"/>
+                    </layoutGuides>
+                    <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cM7-nA-QVJ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="HfF-S4-V5u"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="Z3v-so-reA"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cM7-nA-QVJ" secondAttribute="trailing" id="D75-rL-ytd"/>
+                            <constraint firstItem="RcT-En-cXx" firstAttribute="top" secondItem="cM7-nA-QVJ" secondAttribute="bottom" id="H7q-yE-1Au"/>
+                            <constraint firstAttribute="centerY" secondItem="cM7-nA-QVJ" secondAttribute="centerY" id="ViY-1b-iXe"/>
+                            <constraint firstItem="cM7-nA-QVJ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="eJV-zK-1yJ"/>
+                        </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Timeline" id="QjM-3G-H54">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="AaT-rn-o6T" userLabel="Reddit Button Item">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zKM-GS-Ab6" userLabel="RedditButton">
+                                <rect key="frame" x="16" y="6" width="35" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="reddit.png"/>
+                                <connections>
+                                    <action selector="redditButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="a9y-pL-R6R"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <action selector="redditButtonTapped:" destination="vXZ-lx-hvc" id="qFm-BU-wVk"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="WxT-Nu-nSi" userLabel="Twitter Button Item">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XPR-ID-0NZ" userLabel="Twitter Button">
+                                <rect key="frame" x="269" y="8" width="35" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" image="twitterlogo.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="twitterButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dWy-Nn-P6Q"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="Xr7-s2-5EJ" kind="push" identifier="pushToWebView" id="bSj-aK-hOd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="840" y="177"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="nk5-dq-TFC">
+            <objects>
+                <viewController id="Xr7-s2-5EJ" customClass="WebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VBQ-0x-em3"/>
+                        <viewControllerLayoutGuide type="bottom" id="LrT-pI-I6K"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VLk-N4-kgV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Te9-RE-Qi6">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="Te9-RE-Qi6" secondAttribute="centerY" id="EBu-EV-lp3"/>
+                            <constraint firstItem="LrT-pI-I6K" firstAttribute="top" secondItem="Te9-RE-Qi6" secondAttribute="bottom" id="aG9-AG-7ur"/>
+                            <constraint firstAttribute="trailing" secondItem="Te9-RE-Qi6" secondAttribute="trailing" id="g3a-1D-sDF"/>
+                            <constraint firstItem="Te9-RE-Qi6" firstAttribute="leading" secondItem="VLk-N4-kgV" secondAttribute="leading" id="pwP-lG-LzM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="HuP-Q6-1rC">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Xzr-KK-xsi">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dqI-Ih-27S" userLabel="TwitterButton">
+                                <rect key="frame" x="269" y="8" width="35" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" image="twitterlogo.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="twitterButtonTapped:" destination="Xr7-s2-5EJ" eventType="touchUpInside" id="NFh-BO-fj1"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="webView" destination="Te9-RE-Qi6" id="c1o-ox-Xgd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pzm-H7-hox" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1351" y="177"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mhE-27-Anh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m5z-iZ-GBI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yLM-VB-i9u">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="Fkz-g1-hC6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wSE-jy-hH1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="218" y="417"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="reddit.png" width="216" height="190"/>
+        <image name="twitterlogo.png" width="35" height="28"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

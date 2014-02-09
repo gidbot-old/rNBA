@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A1B18DD187E5190004F4D2B /* redditlogo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A1B18DC187E5190004F4D2B /* redditlogo2.png */; };
+		5A1B18DF187E557C004F4D2B /* redditlogo3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A1B18DE187E557C004F4D2B /* redditlogo3.png */; };
+		5A1B18E1187E57B5004F4D2B /* twitterlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A1B18E0187E57B5004F4D2B /* twitterlogo.png */; };
+		5A1B18E5187E5A30004F4D2B /* reddit.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A1B18E4187E5A30004F4D2B /* reddit.png */; };
+		5A1B18E7187E5B04004F4D2B /* number1.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A1B18E6187E5B04004F4D2B /* number1.1.png */; };
+		5A1B18EA187E7482004F4D2B /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1B18E9187E7482004F4D2B /* WebViewController.m */; };
+		5A1B18EC187FAAA1004F4D2B /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1B18EB187FAAA1004F4D2B /* Twitter.framework */; };
 		5ABC032318581D53002CFEEC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ABC032218581D53002CFEEC /* Foundation.framework */; };
 		5ABC032518581D53002CFEEC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ABC032418581D53002CFEEC /* CoreGraphics.framework */; };
 		5ABC032718581D53002CFEEC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ABC032618581D53002CFEEC /* UIKit.framework */; };
@@ -21,6 +28,18 @@
 		5ABC034418581D53002CFEEC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ABC032618581D53002CFEEC /* UIKit.framework */; };
 		5ABC034C18581D53002CFEEC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5ABC034A18581D53002CFEEC /* InfoPlist.strings */; };
 		5ABC034E18581D53002CFEEC /* tableViewPromoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC034D18581D53002CFEEC /* tableViewPromoTests.m */; };
+		5ABC035818582098002CFEEC /* PropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5ABC035718582098002CFEEC /* PropertyList.plist */; };
+		5ABC03B51859A55E002CFEEC /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ABC03B41859A55E002CFEEC /* Accounts.framework */; };
+		5ABC03B71859A57A002CFEEC /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ABC03B61859A57A002CFEEC /* Social.framework */; };
+		5ABC03C4185ACAC1002CFEEC /* number1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ABC03BB185ACAC1002CFEEC /* number1.png */; };
+		5ABC03C5185ACAC1002CFEEC /* number2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ABC03BC185ACAC1002CFEEC /* number2.png */; };
+		5ABC03C6185ACAC1002CFEEC /* number3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ABC03BD185ACAC1002CFEEC /* number3.png */; };
+		5ABC03C7185ACAC1002CFEEC /* number4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ABC03BE185ACAC1002CFEEC /* number4.png */; };
+		5ABC03C8185ACAC1002CFEEC /* number5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ABC03BF185ACAC1002CFEEC /* number5.png */; };
+		5ABC03C9185ACAC1002CFEEC /* number6.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ABC03C0185ACAC1002CFEEC /* number6.png */; };
+		5ABC03CA185ACAC1002CFEEC /* number7.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ABC03C1185ACAC1002CFEEC /* number7.png */; };
+		5ABC03CB185ACAC1002CFEEC /* number8.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ABC03C2185ACAC1002CFEEC /* number8.png */; };
+		5ABC03CC185ACAC1002CFEEC /* number9.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ABC03C3185ACAC1002CFEEC /* number9.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +53,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A1B18DC187E5190004F4D2B /* redditlogo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redditlogo2.png; sourceTree = "<group>"; };
+		5A1B18DE187E557C004F4D2B /* redditlogo3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redditlogo3.png; sourceTree = "<group>"; };
+		5A1B18E0187E57B5004F4D2B /* twitterlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitterlogo.png; sourceTree = "<group>"; };
+		5A1B18E4187E5A30004F4D2B /* reddit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reddit.png; sourceTree = "<group>"; };
+		5A1B18E6187E5B04004F4D2B /* number1.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number1.1.png; sourceTree = "<group>"; };
+		5A1B18E8187E7482004F4D2B /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		5A1B18E9187E7482004F4D2B /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		5A1B18EB187FAAA1004F4D2B /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		5ABC031F18581D53002CFEEC /* tableViewPromo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tableViewPromo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ABC032218581D53002CFEEC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5ABC032418581D53002CFEEC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +80,18 @@
 		5ABC034918581D53002CFEEC /* tableViewPromoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "tableViewPromoTests-Info.plist"; sourceTree = "<group>"; };
 		5ABC034B18581D53002CFEEC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5ABC034D18581D53002CFEEC /* tableViewPromoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tableViewPromoTests.m; sourceTree = "<group>"; };
+		5ABC035718582098002CFEEC /* PropertyList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PropertyList.plist; sourceTree = "<group>"; };
+		5ABC03B41859A55E002CFEEC /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		5ABC03B61859A57A002CFEEC /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		5ABC03BB185ACAC1002CFEEC /* number1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number1.png; sourceTree = "<group>"; };
+		5ABC03BC185ACAC1002CFEEC /* number2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number2.png; sourceTree = "<group>"; };
+		5ABC03BD185ACAC1002CFEEC /* number3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number3.png; sourceTree = "<group>"; };
+		5ABC03BE185ACAC1002CFEEC /* number4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number4.png; sourceTree = "<group>"; };
+		5ABC03BF185ACAC1002CFEEC /* number5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number5.png; sourceTree = "<group>"; };
+		5ABC03C0185ACAC1002CFEEC /* number6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number6.png; sourceTree = "<group>"; };
+		5ABC03C1185ACAC1002CFEEC /* number7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number7.png; sourceTree = "<group>"; };
+		5ABC03C2185ACAC1002CFEEC /* number8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number8.png; sourceTree = "<group>"; };
+		5ABC03C3185ACAC1002CFEEC /* number9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number9.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +99,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A1B18EC187FAAA1004F4D2B /* Twitter.framework in Frameworks */,
+				5ABC03B71859A57A002CFEEC /* Social.framework in Frameworks */,
+				5ABC03B51859A55E002CFEEC /* Accounts.framework in Frameworks */,
 				5ABC032518581D53002CFEEC /* CoreGraphics.framework in Frameworks */,
 				5ABC032718581D53002CFEEC /* UIKit.framework in Frameworks */,
 				5ABC032318581D53002CFEEC /* Foundation.framework in Frameworks */,
@@ -101,6 +143,9 @@
 		5ABC032118581D53002CFEEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A1B18EB187FAAA1004F4D2B /* Twitter.framework */,
+				5ABC03B61859A57A002CFEEC /* Social.framework */,
+				5ABC03B41859A55E002CFEEC /* Accounts.framework */,
 				5ABC032218581D53002CFEEC /* Foundation.framework */,
 				5ABC032418581D53002CFEEC /* CoreGraphics.framework */,
 				5ABC032618581D53002CFEEC /* UIKit.framework */,
@@ -115,10 +160,13 @@
 				5ABC033118581D53002CFEEC /* AppDelegate.h */,
 				5ABC033218581D53002CFEEC /* AppDelegate.m */,
 				5ABC033418581D53002CFEEC /* Main.storyboard */,
+				5A1B18E8187E7482004F4D2B /* WebViewController.h */,
+				5A1B18E9187E7482004F4D2B /* WebViewController.m */,
 				5ABC033718581D53002CFEEC /* ViewController.h */,
 				5ABC033818581D53002CFEEC /* ViewController.m */,
 				5ABC033A18581D53002CFEEC /* Images.xcassets */,
 				5ABC032918581D53002CFEEC /* Supporting Files */,
+				5ABC035C185968BC002CFEEC /* JSONParser */,
 			);
 			path = tableViewPromo;
 			sourceTree = "<group>";
@@ -126,6 +174,8 @@
 		5ABC032918581D53002CFEEC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5ABC03BA185ACAC1002CFEEC /* pictures */,
+				5ABC035718582098002CFEEC /* PropertyList.plist */,
 				5ABC032A18581D53002CFEEC /* tableViewPromo-Info.plist */,
 				5ABC032B18581D53002CFEEC /* InfoPlist.strings */,
 				5ABC032E18581D53002CFEEC /* main.m */,
@@ -150,6 +200,35 @@
 				5ABC034A18581D53002CFEEC /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5ABC035C185968BC002CFEEC /* JSONParser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = JSONParser;
+			sourceTree = "<group>";
+		};
+		5ABC03BA185ACAC1002CFEEC /* pictures */ = {
+			isa = PBXGroup;
+			children = (
+				5A1B18E0187E57B5004F4D2B /* twitterlogo.png */,
+				5A1B18DC187E5190004F4D2B /* redditlogo2.png */,
+				5A1B18DE187E557C004F4D2B /* redditlogo3.png */,
+				5ABC03BB185ACAC1002CFEEC /* number1.png */,
+				5ABC03BC185ACAC1002CFEEC /* number2.png */,
+				5ABC03BD185ACAC1002CFEEC /* number3.png */,
+				5A1B18E4187E5A30004F4D2B /* reddit.png */,
+				5A1B18E6187E5B04004F4D2B /* number1.1.png */,
+				5ABC03BE185ACAC1002CFEEC /* number4.png */,
+				5ABC03BF185ACAC1002CFEEC /* number5.png */,
+				5ABC03C0185ACAC1002CFEEC /* number6.png */,
+				5ABC03C1185ACAC1002CFEEC /* number7.png */,
+				5ABC03C2185ACAC1002CFEEC /* number8.png */,
+				5ABC03C3185ACAC1002CFEEC /* number9.png */,
+			);
+			name = pictures;
+			path = numbers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,9 +307,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ABC03CB185ACAC1002CFEEC /* number8.png in Resources */,
 				5ABC033B18581D53002CFEEC /* Images.xcassets in Resources */,
+				5A1B18E5187E5A30004F4D2B /* reddit.png in Resources */,
+				5A1B18DD187E5190004F4D2B /* redditlogo2.png in Resources */,
+				5ABC03CA185ACAC1002CFEEC /* number7.png in Resources */,
+				5ABC03C8185ACAC1002CFEEC /* number5.png in Resources */,
+				5ABC03C6185ACAC1002CFEEC /* number3.png in Resources */,
+				5A1B18E1187E57B5004F4D2B /* twitterlogo.png in Resources */,
+				5ABC03C4185ACAC1002CFEEC /* number1.png in Resources */,
+				5A1B18E7187E5B04004F4D2B /* number1.1.png in Resources */,
 				5ABC032D18581D53002CFEEC /* InfoPlist.strings in Resources */,
+				5ABC03C7185ACAC1002CFEEC /* number4.png in Resources */,
+				5ABC035818582098002CFEEC /* PropertyList.plist in Resources */,
+				5ABC03C5185ACAC1002CFEEC /* number2.png in Resources */,
+				5A1B18DF187E557C004F4D2B /* redditlogo3.png in Resources */,
 				5ABC033618581D53002CFEEC /* Main.storyboard in Resources */,
+				5ABC03CC185ACAC1002CFEEC /* number9.png in Resources */,
+				5ABC03C9185ACAC1002CFEEC /* number6.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +346,7 @@
 				5ABC033918581D53002CFEEC /* ViewController.m in Sources */,
 				5ABC033318581D53002CFEEC /* AppDelegate.m in Sources */,
 				5ABC032F18581D53002CFEEC /* main.m in Sources */,
+				5A1B18EA187E7482004F4D2B /* WebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +555,7 @@
 				5ABC035318581D53002CFEEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5ABC035418581D53002CFEEC /* Build configuration list for PBXNativeTarget "tableViewPromoTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +564,7 @@
 				5ABC035618581D53002CFEEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
