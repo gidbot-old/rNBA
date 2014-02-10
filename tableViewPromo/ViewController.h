@@ -7,17 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PostCell.h"
 
-@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ViewController : UIViewController <UITableViewDataSource, TableCellDelegate>
 
 @property (nonatomic, strong) NSData *allPosts;
 @property (nonatomic, strong) NSMutableArray *placeImages;
 @property (nonatomic, strong) NSString *currentLink;
 @property (nonatomic, strong) NSArray *jsonResults;
+@property (nonatomic, strong) NSString *modHash;
+@property (nonatomic, strong) NSString *userName;
+
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+
+
+@property (strong, nonatomic) IBOutlet UITableView *myTableView;
 
 - (IBAction)twitterButtonTapped:(id)sender;
 
 - (IBAction)redditButtonPressed:(id)sender;
+
+- (IBAction)handleRefresh:(id)sender;
 
 
 

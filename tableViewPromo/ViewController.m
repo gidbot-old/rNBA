@@ -8,7 +8,9 @@
 
 #import "ViewController.h"
 #import "WebViewController.h"
+#import "PostCell.h"
 #import <Social/Social.h>
+#import <AFNetworking/AFHTTPRequestOperationManager.h>
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
@@ -18,33 +20,27 @@
 @end
 
 @implementation ViewController
-@synthesize allPosts, placeImages, currentLink, jsonResults;
+@synthesize allPosts, placeImages, currentLink, jsonResults, modHash, myTableView, userName;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    NSString *imagePath1 = [[NSBundle mainBundle] pathForResource:@"number1.1" ofType:@"png"];
-    NSString *imagePath2 = [[NSBundle mainBundle] pathForResource:@"number2" ofType:@"png"];
-    NSString *imagePath3 = [[NSBundle mainBundle] pathForResource:@"number3" ofType:@"png"];
-    NSString *imagePath4 = [[NSBundle mainBundle] pathForResource:@"number4" ofType:@"png"];
-    NSString *imagePath5 = [[NSBundle mainBundle] pathForResource:@"number5" ofType:@"png"];
-    NSString *imagePath6 = [[NSBundle mainBundle] pathForResource:@"number6" ofType:@"png"];
-    NSString *imagePath7 = [[NSBundle mainBundle] pathForResource:@"number7" ofType:@"png"];
-    NSString *imagePath8 = [[NSBundle mainBundle] pathForResource:@"number8" ofType:@"png"];
-    NSString *imagePath9 = [[NSBundle mainBundle] pathForResource:@"number9" ofType:@"png"];
-    placeImages = [[NSMutableArray alloc] initWithObjects:imagePath1, imagePath2,imagePath3, imagePath4,imagePath5, imagePath6,imagePath7, imagePath8,
-                   imagePath9, imagePath1, imagePath2,imagePath3, imagePath4,imagePath5, imagePath6,imagePath7, imagePath8,
-                   imagePath9, imagePath1,imagePath2, imagePath3,imagePath4, imagePath5,imagePath6, imagePath7, imagePath8, nil];
-    
-        
+  
+    [self.myTableView setSeparatorInset:UIEdgeInsetsZero];
+    [self.myTableView setContentInset:UIEdgeInsetsMake(8,0,0,0)];
+
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.myTableView addSubview:self.refreshControl];
+  
+  
     NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://reddit.com/r/nba/.json"]];
     
     NSError* error;
     
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     jsonResults = [[json objectForKey: @"data"] objectForKey: @"children"];
-    
+
     
 }
 
@@ -59,8 +55,10 @@
                                                              [UIFont fontWithName:@"Futura" size:19], NSFontAttributeName,
                                                              nil]
                                                     context:nil];
-    return MAX(45, expectedFrame.size.height);
+  
+    return MAX([UIImage upArrowImage].size.height * 2 + 8, expectedFrame.size.height - 8);
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [jsonResults count];
@@ -68,32 +66,31 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell *myCell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    PostCell *myCell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
     if(nil == myCell){
-        myCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        myCell = [[PostCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
+  
+    myCell.delegate = self;
     NSDictionary *post = [jsonResults[indexPath.row] objectForKey:@"data"];
-
+    NSString *currentPostID = [post  objectForKey:@"name"];
+    NSLog(@"Post Name: %@", currentPostID);
+  
+    myCell.postName = currentPostID;
+    myCell.modHash = modHash;
+  
     NSString *currentPostName = [post  objectForKey:@"title"];
-
+  
+  
     [[myCell textLabel] setText:currentPostName];
     NSDictionary *postTest = jsonResults[25];
-    NSString *imagePath = NULL;
     if (postTest && indexPath.row == 0){
-        imagePath = placeImages[4];
+        //imagePath = placeImages[4];
     } else {
-        imagePath = placeImages[indexPath.row];
+        //imagePath = placeImages[indexPath.row];
     }
-
-    UIImage *numberImage = [UIImage imageWithContentsOfFile:imagePath];
-    myCell.imageView.image = numberImage;
-    
-    [myCell textLabel].font = [UIFont fontWithName:@"Futura" size:17];
-
-    [myCell textLabel].numberOfLines =0;
-    [[myCell textLabel] sizeToFit];
-    [tableView setSeparatorInset:UIEdgeInsetsZero];
+  
     return myCell;
 }
 
@@ -112,8 +109,13 @@
         WebViewController *transferViewController = segue.destinationViewController;
         transferViewController.urlName = currentLink;
     }
-    
-    
+  
+}
+
+
+- (IBAction)handleRefresh:(id)sender {
+  [self.myTableView reloadData];
+  [self.refreshControl endRefreshing];
 }
 
 - (void)didReceiveMemoryWarning
@@ -132,7 +134,7 @@
 }
 
 - (IBAction)redditButtonPressed:(id)sender {
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Reddit Login" message:@"Please enter your username and password:" delegate:self cancelButtonTitle: nil otherButtonTitles:@"Login", @"Cancel", nil];
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Reddit Login" message:@"Enter Username & Password:" delegate:self cancelButtonTitle: @"Cancel" otherButtonTitles:@"Login", nil];
     alert.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
     UITextField * alertTextField = [alert textFieldAtIndex:0];
     alertTextField.keyboardType = UIKeyboardTypeDefault;
@@ -141,7 +143,68 @@
     alertTextField2.keyboardType = UIKeyboardTypeDefault;
     alertTextField2.placeholder = @"Password";
     [alert show];
-    //[alert release];
+      //[alert release];
 }
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+  if (buttonIndex == 1)
+  {
+    UITextField *username = [alertView textFieldAtIndex:0];
+    NSLog(@"username: %@", username.text);
+    
+    UITextField *password = [alertView textFieldAtIndex:1];
+    NSLog(@"password: %@", password.text);
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"user": username.text, @"passwd":password.text, @"api_type":@"json"};
+    [manager POST:@"https://ssl.reddit.com/api/login" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+      
+      NSDictionary *errors = responseObject[@"json"][@"errors"];
+      NSDictionary *data = responseObject[@"json"][@"data"];
+      modHash = responseObject[@"json"][@"data"][@"modhash"];
+      
+      //NSLog(@"Response: %@", responseObject);
+      //NSLog(@"Data: %@", data);
+      NSLog(@"Mod: %@", modHash);
+      
+      if ([errors count]!=0){
+          UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:@"Invalid Login. Please Try Again." delegate:self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        NSLog(@"Error: %@", errors);
+
+      } else {
+        userName = username.text;
+        int test = [self getVoteStatus];
+        [self.myTableView reloadData];
+      }
+    
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+      NSLog(@"Error: %@", error);
+      
+    }];
+  
+  }
+}
+
+- (int) getVoteStatus {
+  NSString *thisUrl = [NSString stringWithFormat: @"http://reddit.com/user/%@/liked.json", userName];
+  NSLog(@"Url Test, %@", thisUrl);
+  NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString: thisUrl]];
+  
+
+  NSError* error;
+  
+  NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+  jsonResults = [[json objectForKey: @"data"] objectForKey: @"children"];
+  //NSArray *jsonResults2 = [[json objectForKey: @"data"] objectForKey: @"children"];
+  
+  NSLog(@"Likes: %@", jsonResults);
+  
+  return NULL;
+
+}
+
 
 @end
