@@ -13,15 +13,16 @@
 + (UIImage *)upArrowImage {
   static UIImage * upArrowImage = nil;
   if(upArrowImage == nil) {
-    upArrowImage = [UIImage imageNamed:@"number3.png"];
+    upArrowImage = [UIImage imageNamed:@"UpArrow.png"];
   }
+
   return upArrowImage;
 }
 
 + (UIImage *)downArrowImage {
   static UIImage * downArrowImage = nil;
   if(downArrowImage == nil) {
-    downArrowImage = [UIImage imageNamed:@"number3.png"];
+    downArrowImage = [UIImage imageNamed:@"DownArrow.png"];
   }
   return downArrowImage;
 }

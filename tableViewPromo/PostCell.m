@@ -20,10 +20,10 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   
   // Set UpArrow
-    UIImage * upImg = [UIImage downArrowImage];
+    UIImage * upImg = [UIImage upArrowImage];
     self.upArrow = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     self.upArrow.frame = CGRectMake(8, 0, upImg.size.width, upImg.size.height);
-    [self.upArrow setImage:upImg forState:UIControlStateNormal];
+    [self.upArrow setBackgroundImage:upImg forState:UIControlStateNormal];
     [self.upArrow addTarget:self action:@selector(UpArrowTapped:) forControlEvents: UIControlEventTouchUpInside];
     [self.contentView addSubview:upArrow];
   
@@ -31,11 +31,13 @@
   UIImage * downImg = [UIImage downArrowImage];
     self.downArrow = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     self.downArrow.frame = CGRectMake(8, 0, downImg.size.width, downImg.size.height);
-    [self.downArrow setImage:downImg forState:UIControlStateNormal];
+    [self.downArrow setBackgroundImage:downImg forState:UIControlStateNormal];
     [self.downArrow addTarget:self action:@selector(DownArrowTapped:) forControlEvents: UIControlEventTouchUpInside];
     [self.contentView addSubview:downArrow];
   
   self.textLabel.numberOfLines = 0;
+    
+  //  self.window.tintColor //
   
     return self;
 }

@@ -43,6 +43,8 @@
 		5ABC03CA185ACAC1002CFEEC /* number7.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ABC03C1185ACAC1002CFEEC /* number7.png */; };
 		5ABC03CB185ACAC1002CFEEC /* number8.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ABC03C2185ACAC1002CFEEC /* number8.png */; };
 		5ABC03CC185ACAC1002CFEEC /* number9.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ABC03C3185ACAC1002CFEEC /* number9.png */; };
+		5AC4A29718A93FE10031808A /* UpArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC4A29618A93FE10031808A /* UpArrow.png */; };
+		5AC4A29918A93FEE0031808A /* DownArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC4A29818A93FEE0031808A /* DownArrow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,8 @@
 		5ABC03C1185ACAC1002CFEEC /* number7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number7.png; sourceTree = "<group>"; };
 		5ABC03C2185ACAC1002CFEEC /* number8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number8.png; sourceTree = "<group>"; };
 		5ABC03C3185ACAC1002CFEEC /* number9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number9.png; sourceTree = "<group>"; };
+		5AC4A29618A93FE10031808A /* UpArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UpArrow.png; path = ../../UpArrow.png; sourceTree = "<group>"; };
+		5AC4A29818A93FEE0031808A /* DownArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DownArrow.png; path = ../../DownArrow.png; sourceTree = "<group>"; };
 		CF48EA94FA7A4EFDBDF779AB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -228,6 +232,8 @@
 		5ABC03BA185ACAC1002CFEEC /* pictures */ = {
 			isa = PBXGroup;
 			children = (
+				5AC4A29818A93FEE0031808A /* DownArrow.png */,
+				5AC4A29618A93FE10031808A /* UpArrow.png */,
 				5A1B18E0187E57B5004F4D2B /* twitterlogo.png */,
 				5A1B18DC187E5190004F4D2B /* redditlogo2.png */,
 				5A1B18DE187E557C004F4D2B /* redditlogo3.png */,
@@ -325,6 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AC4A29718A93FE10031808A /* UpArrow.png in Resources */,
 				5ABC03CB185ACAC1002CFEEC /* number8.png in Resources */,
 				5ABC033B18581D53002CFEEC /* Images.xcassets in Resources */,
 				5A1B18E5187E5A30004F4D2B /* reddit.png in Resources */,
@@ -335,6 +342,7 @@
 				5A1B18E1187E57B5004F4D2B /* twitterlogo.png in Resources */,
 				5ABC03C4185ACAC1002CFEEC /* number1.png in Resources */,
 				5A1B18E7187E5B04004F4D2B /* number1.1.png in Resources */,
+				5AC4A29918A93FEE0031808A /* DownArrow.png in Resources */,
 				5ABC032D18581D53002CFEEC /* InfoPlist.strings in Resources */,
 				5ABC03C7185ACAC1002CFEEC /* number4.png in Resources */,
 				5ABC035818582098002CFEEC /* PropertyList.plist in Resources */,
