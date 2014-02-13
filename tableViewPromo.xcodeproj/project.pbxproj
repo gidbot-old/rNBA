@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		12A75BDB18A8866E005BF028 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A75BDA18A8866E005BF028 /* PostCell.m */; };
 		12A75BDE18A8ACD1005BF028 /* UIImage+NBA.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A75BDD18A8ACD1005BF028 /* UIImage+NBA.m */; };
+		12A75BE518AA0FBC005BF028 /* UpArrowLight.png in Resources */ = {isa = PBXBuildFile; fileRef = 12A75BE118AA0FBC005BF028 /* UpArrowLight.png */; };
+		12A75BE618AA0FBC005BF028 /* DownArrowLight.png in Resources */ = {isa = PBXBuildFile; fileRef = 12A75BE218AA0FBC005BF028 /* DownArrowLight.png */; };
+		12A75BE918AA103C005BF028 /* DownArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 12A75BE718AA103C005BF028 /* DownArrow.png */; };
+		12A75BEA18AA103C005BF028 /* UpArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 12A75BE818AA103C005BF028 /* UpArrow.png */; };
+		12A75BED18AB3E23005BF028 /* PostObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A75BEC18AB3E23005BF028 /* PostObject.m */; };
+		12D226A018AB747200B255CB /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2269F18AB747200B255CB /* Reachability.m */; };
+		12D226A218AB74AB00B255CB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D226A118AB74AB00B255CB /* SystemConfiguration.framework */; };
 		2176D0C7C59648E1809AA29F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB1D6FFE7AE4ACFBD18F584 /* libPods.a */; };
 		5A1B18DD187E5190004F4D2B /* redditlogo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A1B18DC187E5190004F4D2B /* redditlogo2.png */; };
 		5A1B18DF187E557C004F4D2B /* redditlogo3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A1B18DE187E557C004F4D2B /* redditlogo3.png */; };
@@ -43,8 +50,6 @@
 		5ABC03CA185ACAC1002CFEEC /* number7.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ABC03C1185ACAC1002CFEEC /* number7.png */; };
 		5ABC03CB185ACAC1002CFEEC /* number8.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ABC03C2185ACAC1002CFEEC /* number8.png */; };
 		5ABC03CC185ACAC1002CFEEC /* number9.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ABC03C3185ACAC1002CFEEC /* number9.png */; };
-		5AC4A29718A93FE10031808A /* UpArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC4A29618A93FE10031808A /* UpArrow.png */; };
-		5AC4A29918A93FEE0031808A /* DownArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC4A29818A93FEE0031808A /* DownArrow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +68,15 @@
 		12A75BDA18A8866E005BF028 /* PostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		12A75BDC18A8ACD1005BF028 /* UIImage+NBA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+NBA.h"; sourceTree = "<group>"; };
 		12A75BDD18A8ACD1005BF028 /* UIImage+NBA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+NBA.m"; sourceTree = "<group>"; };
+		12A75BE118AA0FBC005BF028 /* UpArrowLight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpArrowLight.png; sourceTree = "<group>"; };
+		12A75BE218AA0FBC005BF028 /* DownArrowLight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DownArrowLight.png; sourceTree = "<group>"; };
+		12A75BE718AA103C005BF028 /* DownArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DownArrow.png; path = ../../DownArrow.png; sourceTree = "<group>"; };
+		12A75BE818AA103C005BF028 /* UpArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UpArrow.png; path = ../../UpArrow.png; sourceTree = "<group>"; };
+		12A75BEB18AB3E23005BF028 /* PostObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostObject.h; sourceTree = "<group>"; };
+		12A75BEC18AB3E23005BF028 /* PostObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostObject.m; sourceTree = "<group>"; };
+		12D2269E18AB746500B255CB /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		12D2269F18AB747200B255CB /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		12D226A118AB74AB00B255CB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5A1B18DC187E5190004F4D2B /* redditlogo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redditlogo2.png; sourceTree = "<group>"; };
 		5A1B18DE187E557C004F4D2B /* redditlogo3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redditlogo3.png; sourceTree = "<group>"; };
 		5A1B18E0187E57B5004F4D2B /* twitterlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitterlogo.png; sourceTree = "<group>"; };
@@ -102,8 +116,6 @@
 		5ABC03C1185ACAC1002CFEEC /* number7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number7.png; sourceTree = "<group>"; };
 		5ABC03C2185ACAC1002CFEEC /* number8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number8.png; sourceTree = "<group>"; };
 		5ABC03C3185ACAC1002CFEEC /* number9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number9.png; sourceTree = "<group>"; };
-		5AC4A29618A93FE10031808A /* UpArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UpArrow.png; path = ../../UpArrow.png; sourceTree = "<group>"; };
-		5AC4A29818A93FEE0031808A /* DownArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DownArrow.png; path = ../../DownArrow.png; sourceTree = "<group>"; };
 		CF48EA94FA7A4EFDBDF779AB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12D226A218AB74AB00B255CB /* SystemConfiguration.framework in Frameworks */,
 				5A1B18EC187FAAA1004F4D2B /* Twitter.framework in Frameworks */,
 				5ABC03B71859A57A002CFEEC /* Social.framework in Frameworks */,
 				5ABC03B51859A55E002CFEEC /* Accounts.framework in Frameworks */,
@@ -158,6 +171,7 @@
 		5ABC032118581D53002CFEEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				12D226A118AB74AB00B255CB /* SystemConfiguration.framework */,
 				5A1B18EB187FAAA1004F4D2B /* Twitter.framework */,
 				5ABC03B61859A57A002CFEEC /* Social.framework */,
 				5ABC03B41859A55E002CFEEC /* Accounts.framework */,
@@ -173,6 +187,8 @@
 		5ABC032818581D53002CFEEC /* tableViewPromo */ = {
 			isa = PBXGroup;
 			children = (
+				12D2269E18AB746500B255CB /* Reachability.h */,
+				12D2269F18AB747200B255CB /* Reachability.m */,
 				5ABC033118581D53002CFEEC /* AppDelegate.h */,
 				5ABC033218581D53002CFEEC /* AppDelegate.m */,
 				5ABC033418581D53002CFEEC /* Main.storyboard */,
@@ -180,6 +196,8 @@
 				5A1B18E9187E7482004F4D2B /* WebViewController.m */,
 				5ABC033718581D53002CFEEC /* ViewController.h */,
 				5ABC033818581D53002CFEEC /* ViewController.m */,
+				12A75BEB18AB3E23005BF028 /* PostObject.h */,
+				12A75BEC18AB3E23005BF028 /* PostObject.m */,
 				12A75BDC18A8ACD1005BF028 /* UIImage+NBA.h */,
 				12A75BDD18A8ACD1005BF028 /* UIImage+NBA.m */,
 				12A75BD918A8866E005BF028 /* PostCell.h */,
@@ -232,8 +250,10 @@
 		5ABC03BA185ACAC1002CFEEC /* pictures */ = {
 			isa = PBXGroup;
 			children = (
-				5AC4A29818A93FEE0031808A /* DownArrow.png */,
-				5AC4A29618A93FE10031808A /* UpArrow.png */,
+				12A75BE718AA103C005BF028 /* DownArrow.png */,
+				12A75BE818AA103C005BF028 /* UpArrow.png */,
+				12A75BE118AA0FBC005BF028 /* UpArrowLight.png */,
+				12A75BE218AA0FBC005BF028 /* DownArrowLight.png */,
 				5A1B18E0187E57B5004F4D2B /* twitterlogo.png */,
 				5A1B18DC187E5190004F4D2B /* redditlogo2.png */,
 				5A1B18DE187E557C004F4D2B /* redditlogo3.png */,
@@ -302,6 +322,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "GIDEON ROSENTHAL";
 				TargetAttributes = {
+					5ABC031E18581D53002CFEEC = {
+						DevelopmentTeam = YDYAC78ETQ;
+					};
 					5ABC033F18581D53002CFEEC = {
 						TestTargetID = 5ABC031E18581D53002CFEEC;
 					};
@@ -331,7 +354,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AC4A29718A93FE10031808A /* UpArrow.png in Resources */,
+				12A75BE618AA0FBC005BF028 /* DownArrowLight.png in Resources */,
+				12A75BE918AA103C005BF028 /* DownArrow.png in Resources */,
 				5ABC03CB185ACAC1002CFEEC /* number8.png in Resources */,
 				5ABC033B18581D53002CFEEC /* Images.xcassets in Resources */,
 				5A1B18E5187E5A30004F4D2B /* reddit.png in Resources */,
@@ -342,13 +366,14 @@
 				5A1B18E1187E57B5004F4D2B /* twitterlogo.png in Resources */,
 				5ABC03C4185ACAC1002CFEEC /* number1.png in Resources */,
 				5A1B18E7187E5B04004F4D2B /* number1.1.png in Resources */,
-				5AC4A29918A93FEE0031808A /* DownArrow.png in Resources */,
 				5ABC032D18581D53002CFEEC /* InfoPlist.strings in Resources */,
 				5ABC03C7185ACAC1002CFEEC /* number4.png in Resources */,
+				12A75BEA18AA103C005BF028 /* UpArrow.png in Resources */,
 				5ABC035818582098002CFEEC /* PropertyList.plist in Resources */,
 				5ABC03C5185ACAC1002CFEEC /* number2.png in Resources */,
 				5A1B18DF187E557C004F4D2B /* redditlogo3.png in Resources */,
 				5ABC033618581D53002CFEEC /* Main.storyboard in Resources */,
+				12A75BE518AA0FBC005BF028 /* UpArrowLight.png in Resources */,
 				5ABC03CC185ACAC1002CFEEC /* number9.png in Resources */,
 				5ABC03C9185ACAC1002CFEEC /* number6.png in Resources */,
 			);
@@ -403,6 +428,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5ABC033918581D53002CFEEC /* ViewController.m in Sources */,
+				12A75BED18AB3E23005BF028 /* PostObject.m in Sources */,
+				12D226A018AB747200B255CB /* Reachability.m in Sources */,
 				5ABC033318581D53002CFEEC /* AppDelegate.m in Sources */,
 				5ABC032F18581D53002CFEEC /* main.m in Sources */,
 				12A75BDE18A8ACD1005BF028 /* UIImage+NBA.m in Sources */,
@@ -535,10 +562,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tableViewPromo/tableViewPromo-Prefix.pch";
 				INFOPLIST_FILE = "tableViewPromo/tableViewPromo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -549,10 +579,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tableViewPromo/tableViewPromo-Prefix.pch";
 				INFOPLIST_FILE = "tableViewPromo/tableViewPromo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

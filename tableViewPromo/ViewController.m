@@ -6,9 +6,11 @@
 //  Copyright (c) 2013 GIDEON ROSENTHAL. All rights reserved.
 //
 
+#import "Reachability.h"
 #import "ViewController.h"
 #import "WebViewController.h"
 #import "PostCell.h"
+#import "PostObject.h"
 #import <Social/Social.h>
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 
@@ -20,11 +22,15 @@
 @end
 
 @implementation ViewController
-@synthesize allPosts, placeImages, currentLink, jsonResults, modHash, myTableView, userName;
+@synthesize allPosts, placeImages, currentLink, jsonResults, modHash, myTableView, userName, postsCollection;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  
+  [[UIView appearance] setTintColor: nil];
+  
+
   
     [self.myTableView setSeparatorInset:UIEdgeInsetsZero];
     [self.myTableView setContentInset:UIEdgeInsetsMake(8,0,0,0)];
@@ -33,18 +39,30 @@
     [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.myTableView addSubview:self.refreshControl];
   
+ 
   
-    NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://reddit.com/r/nba/.json"]];
-    
-    NSError* error;
-    
-    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-    jsonResults = [[json objectForKey: @"data"] objectForKey: @"children"];
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [reachability currentReachabilityStatus];
 
-    
+  if (networkStatus != NotReachable) {
+  //if(true == false){
+      NSError* error;
+      NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://reddit.com/r/nba/.json"]];
+
+      NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+      jsonResults = [[json objectForKey: @"data"] objectForKey: @"children"];
+      postsCollection = [[NSMutableArray alloc] initWithCapacity:26];
+      [self populatePostsDictionary];
+    }else {
+      NSLog(@"No Connection");
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+  if (postsCollection[0] == NULL){
+      NSLog(@"No Height");
+      return MAX([UIImage upArrowImage].size.height * 2 + 8, 0);
+  }
     NSDictionary *post = [jsonResults[indexPath.row] objectForKey:@"data"];
     NSString *currentPostName = [post  objectForKey:@"title"];
 
@@ -61,29 +79,71 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+  if (postsCollection[0] != NULL){
     return [jsonResults count];
+  }
+  else {
+    return 1;
+  }
+}
+
+- (void) populatePostsDictionary {
+  NSLog(@"Here:");
+
+  for (int i = 0; i <jsonResults.count; i++){
+    PostObject *thisPost = [[PostObject alloc] init];
+    
+    NSDictionary *post = [jsonResults[i] objectForKey:@"data"];
+    thisPost.postId = [post  objectForKey:@"name"];
+    thisPost.postTitle = [post  objectForKey:@"title"];
+    
+    thisPost.position = i;
+    thisPost.status = 0;
+    
+    [postsCollection addObject:thisPost];
+    NSLog(@"Here: %@", thisPost.description);
+  }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+  if (postsCollection[0] == NULL){
+    UITableViewCell *blankCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell2"];
+    return blankCell;
+  }
     PostCell *myCell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    
+    PostObject *currentObject = postsCollection[indexPath.row];
+  
     if(nil == myCell){
         myCell = [[PostCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
   
     myCell.delegate = self;
-    NSDictionary *post = [jsonResults[indexPath.row] objectForKey:@"data"];
-    NSString *currentPostID = [post  objectForKey:@"name"];
-    NSLog(@"Post Name: %@", currentPostID);
+
+    NSString *currentPostID = currentObject.postId;
+    NSString *currentPostTitle = currentObject.postTitle;
   
-    myCell.postName = currentPostID;
+    myCell.postId = currentPostID;
     myCell.modHash = modHash;
   
-    NSString *currentPostName = [post  objectForKey:@"title"];
+  switch (currentObject.status) {
+    case -1:
+      [myCell.upArrow setSelected:NO];
+      [myCell.downArrow setSelected:YES];
+      break;
+    case 1:
+      [myCell.upArrow setSelected:YES];
+      [myCell.downArrow setSelected:NO];
+      break;
+    default:
+      [myCell.upArrow setSelected:NO];
+      [myCell.downArrow setSelected:NO];
+      break;
+  }
   
   
-    [[myCell textLabel] setText:currentPostName];
+    [[myCell textLabel] setText:currentPostTitle];
+    myCell.textLabel.font = [UIFont fontWithName:@"Verdana" size:19];
+
     NSDictionary *postTest = jsonResults[25];
     if (postTest && indexPath.row == 0){
         //imagePath = placeImages[4];
@@ -95,12 +155,16 @@
 }
 
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+  if (postsCollection[0] != NULL){
+
     NSDictionary *post = [jsonResults[indexPath.row] objectForKey:@"data"];
     currentLink = [post  objectForKey:@"url"];
     
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self performSegueWithIdentifier: @"pushToWebView" sender: self];
+
+  }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -114,6 +178,21 @@
 
 
 - (IBAction)handleRefresh:(id)sender {
+  Reachability *reachability = [Reachability reachabilityForInternetConnection];
+  NetworkStatus networkStatus = [reachability currentReachabilityStatus];
+  
+  if(postsCollection[0] == NULL && networkStatus != NotReachable){
+    
+    NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://reddit.com/r/nba/.json"]];
+    
+    NSError* error;
+    
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    jsonResults = [[json objectForKey: @"data"] objectForKey: @"children"];
+    postsCollection = [[NSMutableArray alloc] initWithCapacity:26];
+    [self populatePostsDictionary];
+  }
+  
   [self.myTableView reloadData];
   [self.refreshControl endRefreshing];
 }
@@ -146,6 +225,17 @@
       //[alert release];
 }
 
+-(void) statusChanged:(NSInteger)status forPostWithId:(NSString *)postId{
+  for (int i = 0; i < postsCollection.count; i++){
+    PostObject *check = postsCollection[i];
+    if (check.postId == postId){
+      check.status = status;
+      postsCollection[i] = check;
+      break;
+    }
+  }
+}
+
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
   if (buttonIndex == 1)
@@ -176,7 +266,7 @@
 
       } else {
         userName = username.text;
-        int test = [self getVoteStatus];
+        //int test = [self getVoteStatus];
         [self.myTableView reloadData];
       }
     
@@ -187,6 +277,7 @@
   
   }
 }
+
 
 - (int) getVoteStatus {
   NSString *thisUrl = [NSString stringWithFormat: @"http://reddit.com/user/%@/liked.json", userName];

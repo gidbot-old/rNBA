@@ -13,4 +13,7 @@
 + (UIImage *)upArrowImage;
 + (UIImage *)downArrowImage;
 
++ (UIImage *)upArrowImageLight;
++ (UIImage *)downArrowImageLight;
+
 @end

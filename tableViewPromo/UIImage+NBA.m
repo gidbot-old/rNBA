@@ -27,4 +27,21 @@
   return downArrowImage;
 }
 
++ (UIImage *)upArrowImageLight {
+  static UIImage * upArrowImageLight = nil;
+  if(upArrowImageLight == nil) {
+    upArrowImageLight = [UIImage imageNamed:@"UpArrowLight.png"];
+  }
+  
+  return upArrowImageLight;
+}
+
++ (UIImage *)downArrowImageLight {
+  static UIImage * downArrowImageLight = nil;
+  if(downArrowImageLight == nil) {
+    downArrowImageLight = [UIImage imageNamed:@"DownArrowLight.png"];
+  }
+  return downArrowImageLight;
+}
+
 @end

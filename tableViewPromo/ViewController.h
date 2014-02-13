@@ -18,6 +18,9 @@
 @property (nonatomic, strong) NSString *modHash;
 @property (nonatomic, strong) NSString *userName;
 
+
+@property (nonatomic, strong) NSMutableArray *postsCollection;
+
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 
