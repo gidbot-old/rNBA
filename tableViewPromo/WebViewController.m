@@ -20,6 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  
     NSURL *url = [[NSURL alloc] initWithString:urlName];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     [self.webView loadRequest:request];
@@ -46,4 +47,17 @@
     [self presentViewController:tweetSheet animated:YES completion:nil];
 
 }
+
+//flag method
+-(void)needIos6Landscape {
+}
+- (BOOL)shouldAutorotate
+{
+  return YES;
+}
+- (NSUInteger)supportedInterfaceOrientations
+{
+  return UIInterfaceOrientationMaskAllButUpsideDown;
+}
+
 @end

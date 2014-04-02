@@ -16,6 +16,8 @@
 		12A75BED18AB3E23005BF028 /* PostObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A75BEC18AB3E23005BF028 /* PostObject.m */; };
 		12D226A018AB747200B255CB /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2269F18AB747200B255CB /* Reachability.m */; };
 		12D226A218AB74AB00B255CB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D226A118AB74AB00B255CB /* SystemConfiguration.framework */; };
+		12D226A518ADC45D00B255CB /* DownArrowGrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 12D226A318ADC45D00B255CB /* DownArrowGrey.png */; };
+		12D226A618ADC45D00B255CB /* UpArrowGrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 12D226A418ADC45D00B255CB /* UpArrowGrey.png */; };
 		2176D0C7C59648E1809AA29F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB1D6FFE7AE4ACFBD18F584 /* libPods.a */; };
 		5A1B18DD187E5190004F4D2B /* redditlogo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A1B18DC187E5190004F4D2B /* redditlogo2.png */; };
 		5A1B18DF187E557C004F4D2B /* redditlogo3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A1B18DE187E557C004F4D2B /* redditlogo3.png */; };
@@ -77,6 +79,8 @@
 		12D2269E18AB746500B255CB /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		12D2269F18AB747200B255CB /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		12D226A118AB74AB00B255CB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		12D226A318ADC45D00B255CB /* DownArrowGrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DownArrowGrey.png; sourceTree = "<group>"; };
+		12D226A418ADC45D00B255CB /* UpArrowGrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpArrowGrey.png; sourceTree = "<group>"; };
 		5A1B18DC187E5190004F4D2B /* redditlogo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redditlogo2.png; sourceTree = "<group>"; };
 		5A1B18DE187E557C004F4D2B /* redditlogo3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redditlogo3.png; sourceTree = "<group>"; };
 		5A1B18E0187E57B5004F4D2B /* twitterlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitterlogo.png; sourceTree = "<group>"; };
@@ -250,6 +254,8 @@
 		5ABC03BA185ACAC1002CFEEC /* pictures */ = {
 			isa = PBXGroup;
 			children = (
+				12D226A318ADC45D00B255CB /* DownArrowGrey.png */,
+				12D226A418ADC45D00B255CB /* UpArrowGrey.png */,
 				12A75BE718AA103C005BF028 /* DownArrow.png */,
 				12A75BE818AA103C005BF028 /* UpArrow.png */,
 				12A75BE118AA0FBC005BF028 /* UpArrowLight.png */,
@@ -355,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				12A75BE618AA0FBC005BF028 /* DownArrowLight.png in Resources */,
+				12D226A518ADC45D00B255CB /* DownArrowGrey.png in Resources */,
 				12A75BE918AA103C005BF028 /* DownArrow.png in Resources */,
 				5ABC03CB185ACAC1002CFEEC /* number8.png in Resources */,
 				5ABC033B18581D53002CFEEC /* Images.xcassets in Resources */,
@@ -370,6 +377,7 @@
 				5ABC03C7185ACAC1002CFEEC /* number4.png in Resources */,
 				12A75BEA18AA103C005BF028 /* UpArrow.png in Resources */,
 				5ABC035818582098002CFEEC /* PropertyList.plist in Resources */,
+				12D226A618ADC45D00B255CB /* UpArrowGrey.png in Resources */,
 				5ABC03C5185ACAC1002CFEEC /* number2.png in Resources */,
 				5A1B18DF187E557C004F4D2B /* redditlogo3.png in Resources */,
 				5ABC033618581D53002CFEEC /* Main.storyboard in Resources */,
@@ -562,13 +570,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Gideon ROSENTHAL (XHUD7869FA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gideon ROSENTHAL (XHUD7869FA)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tableViewPromo/tableViewPromo-Prefix.pch";
 				INFOPLIST_FILE = "tableViewPromo/tableViewPromo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "108AE338-8172-4C89-B326-C4953DCDC095";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -579,13 +587,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Gideon ROSENTHAL (XHUD7869FA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gideon ROSENTHAL (XHUD7869FA)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tableViewPromo/tableViewPromo-Prefix.pch";
 				INFOPLIST_FILE = "tableViewPromo/tableViewPromo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "108AE338-8172-4C89-B326-C4953DCDC095";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

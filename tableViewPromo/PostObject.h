@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSString *author;
 @property (nonatomic, strong) NSString *postId;
 @property (nonatomic, readwrite) NSInteger position;
+@property (nonatomic, readwrite) NSString *url;
 
 
 

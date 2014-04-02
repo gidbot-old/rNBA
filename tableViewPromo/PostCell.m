@@ -30,9 +30,9 @@
     self.upArrow = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     self.upArrow.adjustsImageWhenHighlighted = false;
     self.upArrow.frame = CGRectMake(8, 0, upImgLight.size.width, upImgLight.size.height);
+  
     [self.upArrow setBackgroundImage:upImgLight forState:UIControlStateNormal];
     [self.upArrow setBackgroundImage:upImg forState:UIControlStateSelected];
-  
     [self.upArrow addTarget:self action:@selector(UpArrowTapped:) forControlEvents: UIControlEventTouchUpInside];
     [self.contentView addSubview:upArrow];
 
@@ -72,10 +72,10 @@
 - (IBAction)UpArrowTapped:(id)sender {
   NSLog(@"UP!");
   if (modHash == NULL){
-    /*
+    
      UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:@"Please login into reddit to vote." delegate:self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
      [alert show];
-     */
+     
     
   } else {
       if (status != 1){
@@ -101,10 +101,10 @@
 - (IBAction)DownArrowTapped:(id)sender {
   NSLog(@"Down!");
   if (modHash == NULL){
-      /*
+    
        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:@"Please login into reddit to vote." delegate:self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
        [alert show];
-       */
+    
 
   } else {
       if (status != -1){

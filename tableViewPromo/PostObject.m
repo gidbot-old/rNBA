@@ -10,7 +10,7 @@
 #import "PostCell.h"
 @implementation PostObject
 
-@synthesize status, postTitle, author, postId, position;
+@synthesize status, postTitle, author, postId, position, url;
 
 
 
