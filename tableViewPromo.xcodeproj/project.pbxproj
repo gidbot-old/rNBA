@@ -52,6 +52,7 @@
 		5ABC03CA185ACAC1002CFEEC /* number7.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ABC03C1185ACAC1002CFEEC /* number7.png */; };
 		5ABC03CB185ACAC1002CFEEC /* number8.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ABC03C2185ACAC1002CFEEC /* number8.png */; };
 		5ABC03CC185ACAC1002CFEEC /* number9.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ABC03C3185ACAC1002CFEEC /* number9.png */; };
+		5AC8641118ECEBEF00715160 /* CustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC8641018ECEBEF00715160 /* CustomSegue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,8 @@
 		5ABC03C1185ACAC1002CFEEC /* number7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number7.png; sourceTree = "<group>"; };
 		5ABC03C2185ACAC1002CFEEC /* number8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number8.png; sourceTree = "<group>"; };
 		5ABC03C3185ACAC1002CFEEC /* number9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number9.png; sourceTree = "<group>"; };
+		5AC8640F18ECEBEF00715160 /* CustomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSegue.h; sourceTree = "<group>"; };
+		5AC8641018ECEBEF00715160 /* CustomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSegue.m; sourceTree = "<group>"; };
 		CF48EA94FA7A4EFDBDF779AB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,6 +199,8 @@
 				5ABC033118581D53002CFEEC /* AppDelegate.h */,
 				5ABC033218581D53002CFEEC /* AppDelegate.m */,
 				5ABC033418581D53002CFEEC /* Main.storyboard */,
+				5AC8640F18ECEBEF00715160 /* CustomSegue.h */,
+				5AC8641018ECEBEF00715160 /* CustomSegue.m */,
 				5A1B18E8187E7482004F4D2B /* WebViewController.h */,
 				5A1B18E9187E7482004F4D2B /* WebViewController.m */,
 				5ABC033718581D53002CFEEC /* ViewController.h */,
@@ -443,6 +448,7 @@
 				12A75BDE18A8ACD1005BF028 /* UIImage+NBA.m in Sources */,
 				5A1B18EA187E7482004F4D2B /* WebViewController.m in Sources */,
 				12A75BDB18A8866E005BF028 /* PostCell.m in Sources */,
+				5AC8641118ECEBEF00715160 /* CustomSegue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,13 +576,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Gideon ROSENTHAL (XHUD7869FA)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gideon ROSENTHAL (XHUD7869FA)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tableViewPromo/tableViewPromo-Prefix.pch";
 				INFOPLIST_FILE = "tableViewPromo/tableViewPromo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "108AE338-8172-4C89-B326-C4953DCDC095";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -587,13 +593,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Gideon ROSENTHAL (XHUD7869FA)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gideon ROSENTHAL (XHUD7869FA)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tableViewPromo/tableViewPromo-Prefix.pch";
 				INFOPLIST_FILE = "tableViewPromo/tableViewPromo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "108AE338-8172-4C89-B326-C4953DCDC095";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

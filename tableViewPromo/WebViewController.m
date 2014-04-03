@@ -27,6 +27,11 @@
 
     self.webView.scalesPageToFit = YES;
     self.webView.delegate = self;
+    
+    UISwipeGestureRecognizer * swipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeLeft:)];
+    [swipeRecognizer setDelegate:self];
+    [swipeRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.webView addGestureRecognizer:swipeRecognizer];
 }
 
 - (IBAction)twitterButtonTapped:(id)sender {
@@ -46,6 +51,15 @@
     [tweetSheet setInitialText:toPost];
     [self presentViewController:tweetSheet animated:YES completion:nil];
 
+}
+
+- (void) onSwipeLeft:(UISwipeGestureRecognizer *)recognizer
+{
+    if (recognizer.state == UIGestureRecognizerStateEnded)
+    {
+            //[self performSegueWithIdentifier: @"pushToTableView" sender: self];
+        
+    }
 }
 
 //flag method

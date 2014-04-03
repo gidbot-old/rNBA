@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="m5z-iZ-GBI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="m5z-iZ-GBI">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller - Timeline-->
+        <!--View Controller - Basketball-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
@@ -35,33 +35,24 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Timeline" id="QjM-3G-H54">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="AaT-rn-o6T" userLabel="Reddit Button Item">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zKM-GS-Ab6" userLabel="RedditButton">
-                                <rect key="frame" x="16" y="6" width="35" height="31"/>
+                    <navigationItem key="navigationItem" title="Basketball" id="8Gj-ip-clc">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="wrK-oF-bNr" userLabel="Reddit Button Item">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZPS-ma-QYB" userLabel="RedditButton">
+                                <rect key="frame" x="16" y="-2" width="43" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="reddit.png"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="redditButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="a9y-pL-R6R"/>
+                                    <action selector="redditButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="yWF-XT-uL7"/>
                                 </connections>
                             </button>
                             <connections>
-                                <action selector="redditButtonTapped:" destination="vXZ-lx-hvc" id="qFm-BU-wVk"/>
+                                <action selector="redditButtonTapped:" destination="vXZ-lx-hvc" id="1EW-bQ-Pz6"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="WxT-Nu-nSi" userLabel="Twitter Button Item">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XPR-ID-0NZ" userLabel="Twitter Button">
-                                <rect key="frame" x="269" y="8" width="35" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" image="twitterlogo.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="twitterButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dWy-Nn-P6Q"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="lTJ-Nq-yjp" userLabel="Twitter Button Item"/>
                     </navigationItem>
                     <connections>
                         <outlet property="myTableView" destination="cM7-nA-QVJ" id="89C-78-yTS"/>
@@ -100,22 +91,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HuP-Q6-1rC">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Xzr-KK-xsi">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dqI-Ih-27S" userLabel="TwitterButton">
-                                <rect key="frame" x="269" y="8" width="35" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" image="twitterlogo.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="twitterButtonTapped:" destination="Xr7-s2-5EJ" eventType="touchUpInside" id="NFh-BO-fj1"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="Xzr-KK-xsi"/>
                     </navigationItem>
                     <connections>
                         <outlet property="webView" destination="Te9-RE-Qi6" id="c1o-ox-Xgd"/>
+                        <segue destination="vXZ-lx-hvc" kind="custom" identifier="pushToTableView" customClass="CustomSegue" id="cmF-of-2hC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pzm-H7-hox" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -141,13 +121,12 @@
             <point key="canvasLocation" x="218" y="417"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="reddit.png" width="216" height="190"/>
-        <image name="twitterlogo.png" width="35" height="28"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="Fkz-g1-hC6"/>
+    </inferredMetricsTieBreakers>
 </document>

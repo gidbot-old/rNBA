@@ -22,13 +22,15 @@
 @end
 
 @implementation ViewController
-@synthesize allPosts, placeImages, currentLink, jsonResults, modHash, myTableView, userName, postsCollection, topImage, topText;
+@synthesize allPosts, placeImages, currentLink, jsonResults, modHash, myTableView, userName, postsCollection, topImage, topText, cellHeight;
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
   
+    
+    cellHeight = 70;
   [[UIView appearance] setTintColor: nil];
     [self.myTableView setSeparatorInset:UIEdgeInsetsZero];
     [self.myTableView setContentInset:UIEdgeInsetsMake(0,0,0,0)];
@@ -37,6 +39,15 @@
     [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.myTableView addSubview:self.refreshControl];
   
+    
+    //Allow for swipe left to WebView
+    /*
+    UISwipeGestureRecognizer * swipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeLeft:)];
+    [swipeRecognizer setDelegate:self];
+    [swipeRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self.myTableView addGestureRecognizer:swipeRecognizer];
+    */
+    
     [self populateTable];
 }
 
@@ -77,15 +88,13 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-  if (postsCollection[0] == NULL){
-      NSLog(@"No Height");
-      return MAX([UIImage upArrowImage].size.height * 2 + 8, 0);
-  } else if (indexPath.row == 0){
+  if (indexPath.row == 0){
     return topImage.size.height;
   }
     //NSDictionary *post = [jsonResults[indexPath.row] objectForKey:@"data"];
     //NSString *currentPostName = [post  objectForKey:@"title"];
 
+    /*
     PostObject *thisPost = postsCollection[indexPath.row];
     NSString *currentPostName = thisPost.postTitle;
 
@@ -95,8 +104,10 @@
                                                              [UIFont fontWithName:@"Futura" size:16], NSFontAttributeName,
                                                              nil]
                                                     context:nil];
-  
+    
     return MAX([UIImage upArrowImage].size.height * 2 + 8, expectedFrame.size.height - 8);
+     */
+    return cellHeight +8;
 }
 
 
@@ -172,7 +183,7 @@
   }
     PostCell *myCell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     PostObject *currentObject = postsCollection[indexPath.row];
-  
+    
     if(nil == myCell){
         myCell = [[PostCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
@@ -200,22 +211,43 @@
       break;
   }
   
-  
+    //currentPostTitle = [currentPostTitle lowercaseString];
     [[myCell textLabel] setText:currentPostTitle];
-    myCell.textLabel.font = [UIFont fontWithName:@"Futura" size:17];
-  
-  
+    
+    NSInteger holdSize = 17;
+    
+    myCell.textLabel.font = [UIFont fontWithName:@"Futura" size:holdSize];
+
     return myCell;
 }
 
+/*
+- (void) onSwipeLeft:(UISwipeGestureRecognizer *)recognizer
+{
+    if (recognizer.state == UIGestureRecognizerStateEnded)
+    {
+        CGPoint swipeLocation = [recognizer locationInView:self.myTableView];
+        NSIndexPath *swipedIndexPath = [self.myTableView indexPathForRowAtPoint:swipeLocation];
+        // do what you want here
+        
+        if (postsCollection[0] != NULL && swipedIndexPath.row != 0){
+            PostObject *thisPost = postsCollection[swipedIndexPath.row];
+            currentLink = thisPost.url;
+            [self.myTableView deselectRowAtIndexPath:swipedIndexPath animated:YES];
+            [self performSegueWithIdentifier: @"pushToWebView" sender: self];
+        }
+    }
+}
+*/
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
-  if (postsCollection[0] != NULL && indexPath.row != 0){
-    PostObject *thisPost = postsCollection[indexPath.row];
-    currentLink = thisPost.url;
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self performSegueWithIdentifier: @"pushToWebView" sender: self];
+    if (postsCollection[0] != NULL && indexPath.row != 0){
+        PostObject *thisPost = postsCollection[indexPath.row];
+        currentLink = thisPost.url;
+        [self.myTableView deselectRowAtIndexPath:indexPath animated:YES];
+        [self performSegueWithIdentifier: @"pushToWebView" sender: self];
+    }
 
-  }
+  
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

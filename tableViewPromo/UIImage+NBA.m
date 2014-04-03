@@ -13,7 +13,7 @@
 + (UIImage *)upArrowImage {
   static UIImage * upArrowImage = nil;
   if(upArrowImage == nil) {
-    upArrowImage = [UIImage imageNamed:@"UpArrowLight.png"];
+    upArrowImage = [UIImage imageNamed:@"number2.png"];
   }
 
   return upArrowImage;
@@ -30,7 +30,7 @@
 + (UIImage *)upArrowImageLight {
   static UIImage * upArrowImageLight = nil;
   if(upArrowImageLight == nil) {
-    upArrowImageLight = [UIImage imageNamed:@"UpArrowGrey.png"];
+    upArrowImageLight = [UIImage imageNamed:@"number2.png"];
   }
   
   return upArrowImageLight;

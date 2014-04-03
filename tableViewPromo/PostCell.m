@@ -29,7 +29,7 @@
   
     self.upArrow = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     self.upArrow.adjustsImageWhenHighlighted = false;
-    self.upArrow.frame = CGRectMake(8, 0, upImgLight.size.width, upImgLight.size.height);
+    self.upArrow.frame = CGRectMake(self.frame.size.width - upImgLight.size.width-8, self.frame.size.height/2 -8, upImgLight.size.width, upImgLight.size.height);
   
     [self.upArrow setBackgroundImage:upImgLight forState:UIControlStateNormal];
     [self.upArrow setBackgroundImage:upImg forState:UIControlStateSelected];
@@ -46,7 +46,7 @@
   
     [self.downArrow addTarget:self action:@selector(DownArrowTapped:) forControlEvents: UIControlEventTouchUpInside];
 
-  [self.contentView addSubview:downArrow];
+  //[self.contentView addSubview:downArrow];
 
 
   
@@ -55,11 +55,17 @@
 
 - (void) layoutSubviews {
   [super layoutSubviews];
+    /*
   self.upArrow.center = CGPointMake(self.upArrow.center.x, floorf(self.frame.size.height / 2 - upArrow.frame.size.height / 2));
   self.downArrow.center = CGPointMake(self.downArrow.center.x, floorf(self.frame.size.height / 2) + downArrow.frame.size.height /2);
 
   float x = self.upArrow.frame.origin.x + self.upArrow.frame.size.width +8;
   self.textLabel.frame = CGRectMake(x, self.textLabel.frame.origin.y, self.frame.size.width - x - 8, self.frame.size.height);
+     */
+    float x = self.upArrow.frame.origin.x + self.upArrow.frame.size.width +8;
+    
+    self.textLabel.frame = CGRectMake(8, self.textLabel.frame.origin.y, self.frame.size.width - self.upArrow.frame.size.width - 24, self.frame.size.height);
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
