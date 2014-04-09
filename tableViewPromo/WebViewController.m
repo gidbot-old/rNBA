@@ -32,6 +32,7 @@
     [swipeRecognizer setDelegate:self];
     [swipeRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.webView addGestureRecognizer:swipeRecognizer];
+    
 }
 
 - (IBAction)twitterButtonTapped:(id)sender {
@@ -62,16 +63,17 @@
     }
 }
 
+
 //flag method
 -(void)needIos6Landscape {
 }
 - (BOOL)shouldAutorotate
 {
-  return YES;
+    return YES;
 }
 - (NSUInteger)supportedInterfaceOrientations
 {
-  return UIInterfaceOrientationMaskAllButUpsideDown;
+    return UIInterfaceOrientationMaskAllButUpsideDown;
 }
 
 @end

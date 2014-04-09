@@ -9,46 +9,21 @@
 #import "PostCell.h"
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 
-
-
 @implementation PostCell
-
-@synthesize postId, modHash, cellImage, delegate, upArrow, downArrow, status,  upImg, upImgLight, downImg, downImgLight;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-
-    self.textLabel.numberOfLines = 0;
-
-    upImg = [UIImage upArrowImage];
-    upImgLight = [UIImage upArrowImageLight];
-    downImg = [UIImage downArrowImage];
-    downImgLight = [UIImage downArrowImageLight];
-
-  
-    self.upArrow = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.upArrow.adjustsImageWhenHighlighted = false;
-    self.upArrow.frame = CGRectMake(self.frame.size.width - upImgLight.size.width-8, self.frame.size.height/2 -8, upImgLight.size.width, upImgLight.size.height);
-  
-    [self.upArrow setBackgroundImage:upImgLight forState:UIControlStateNormal];
-    [self.upArrow setBackgroundImage:upImg forState:UIControlStateSelected];
-    [self.upArrow addTarget:self action:@selector(UpArrowTapped:) forControlEvents: UIControlEventTouchUpInside];
-    [self.contentView addSubview:upArrow];
-
-  
-  
-    self.downArrow = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.downArrow.adjustsImageWhenHighlighted = false;
-    [self.downArrow setBackgroundImage:downImgLight forState:UIControlStateNormal];
-    [self.downArrow setBackgroundImage:downImg forState:UIControlStateSelected];
-    self.downArrow.frame = CGRectMake(8, 0, downImgLight.size.width, downImgLight.size.height);
-  
-    [self.downArrow addTarget:self action:@selector(DownArrowTapped:) forControlEvents: UIControlEventTouchUpInside];
-
-  //[self.contentView addSubview:downArrow];
-
-
+    
+    if (self) {
+        self.textLabel.numberOfLines = 0;
+        
+        self.upArrow = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        self.upArrow.adjustsImageWhenHighlighted = false;
+        
+        [self.upArrow addTarget:self action:@selector(UpArrowTapped:) forControlEvents: UIControlEventTouchUpInside];
+        [self.contentView addSubview:self.upArrow];
+    }
   
     return self;
 }
@@ -68,6 +43,17 @@
 
 }
 
+- (void)setNumberImage:(UIImage *)numberImage
+{
+    if (numberImage == _numberImage) return;
+    _numberImage = numberImage;
+    
+    self.upArrow.frame = CGRectMake(self.frame.size.width - _numberImage.size.width, 0, _numberImage.size.width, _numberImage.size.height);
+    
+    [self.upArrow setBackgroundImage:_numberImage forState:UIControlStateNormal];
+    [self.upArrow setBackgroundImage:_numberImage forState:UIControlStateSelected];
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
@@ -77,71 +63,75 @@
 
 - (IBAction)UpArrowTapped:(id)sender {
   NSLog(@"UP!");
-  if (modHash == NULL){
+  if (_modHash == NULL){
     
      UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:@"Please login into reddit to vote." delegate:self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
      [alert show];
      
     
   } else {
-      if (status != 1){
+      if (_status != 1){
         // Happens if the previous state was neutral or negative
         [self.upArrow setSelected: YES];
-        if (status == -1){
+        if (_status == -1){
           [self.downArrow setSelected: NO];
         }
         [self vote:@"1"];
-        status =1;
+        _status =1;
       } else {
       
         [self.upArrow setSelected:NO];
         [self vote:@"0"];
-        status = 0;
+        _status = 0;
       }
     }
-  if ([delegate respondsToSelector:@selector(statusChanged:forPostWithId:)]){
-    [delegate statusChanged:status forPostWithId: self.postId];
+    /*
+  if ([_delegate respondsToSelector:@selector(statusChanged:forPostWithId:)]){
+    [self.delegate statusChanged:_status forPostWithId: self.postId];
   }
+     */
 }
 
 - (IBAction)DownArrowTapped:(id)sender {
   NSLog(@"Down!");
-  if (modHash == NULL){
+  if (_modHash == NULL){
     
        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:@"Please login into reddit to vote." delegate:self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
        [alert show];
     
 
   } else {
-      if (status != -1){
+      if (_status != -1){
         // Happens if the previous state was neutral or positive
         [self.downArrow setSelected: YES];
-        if (status == 1){
+        if (_status == 1){
           [self.upArrow setSelected: NO];
         }
         [self vote:@"-1"];
-        status = -1;
+        _status = -1;
       } else {
         
         [self.downArrow setSelected: NO];
         [self vote:@"0"];
-        status = 0;
+        _status = 0;
       }
   }
-  if ([delegate respondsToSelector:@selector(statusChanged:forPostWithId:)]){
-    [delegate statusChanged:status forPostWithId: self.postId];
+    /*
+  if ([_delegate respondsToSelector:@selector(statusChanged:forPostWithId:)]){
+    [_delegate statusChanged:_status forPostWithId: self.postId];
   }
+     */
   
 }
 
 -(void) vote: (NSString *)direction{
   
-  NSString *postToVote = postId;
+  NSString *postToVote = _postId;
   
   AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
   
-  if (modHash != NULL){
-    NSDictionary *parameters = @{@"dir": direction, @"id":postToVote, @"uh":modHash};
+  if (_modHash != NULL){
+    NSDictionary *parameters = @{@"dir": direction, @"id":postToVote, @"uh":_modHash};
     [manager POST:@"https://ssl.reddit.com/api/vote" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
       NSLog(@"JSON: %@", responseObject);
       NSArray *errors = responseObject[@"json"][@"errors"];

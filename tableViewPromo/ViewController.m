@@ -28,8 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-  
-    
+
+
     cellHeight = 70;
   [[UIView appearance] setTintColor: nil];
     [self.myTableView setSeparatorInset:UIEdgeInsetsZero];
@@ -47,6 +47,8 @@
     [swipeRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
     [self.myTableView addGestureRecognizer:swipeRecognizer];
     */
+    
+    [self.myTableView registerClass:[PostCell class] forCellReuseIdentifier:@"cell"];
     
     [self populateTable];
 }
@@ -182,12 +184,17 @@
   
   }
     PostCell *myCell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    NSString *imagePosition;
+    if (postsCollection[26] != NULL){
+       imagePosition  = [NSString stringWithFormat:@"%d", (int)indexPath.row];
+    } else {
+        imagePosition = [NSString stringWithFormat:@"%d", (int)indexPath.row -1];
+    }
+    myCell.numberImage = [UIImage imageNamed:imagePosition];
+    //PostCell *myCell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+
     PostObject *currentObject = postsCollection[indexPath.row];
     
-    if(nil == myCell){
-        myCell = [[PostCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    }
-  
     myCell.delegate = self;
 
     NSString *currentPostID = currentObject.postId;

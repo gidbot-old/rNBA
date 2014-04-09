@@ -18,6 +18,4 @@
 @property (nonatomic, readwrite) NSInteger position;
 @property (nonatomic, readwrite) NSString *url;
 
-
-
 @end

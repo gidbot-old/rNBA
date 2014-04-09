@@ -22,18 +22,19 @@
 @property (nonatomic, strong) UIButton *upArrow;
 @property (nonatomic, strong) UIButton *downArrow;
 
-@property (nonatomic, strong) UIImage *upImg;
-@property (nonatomic, strong) UIImage *downImg;
-
-@property (nonatomic, strong) UIImage *upImgLight;
-@property (nonatomic, strong) UIImage *downImgLight;
-
 @property (nonatomic, readwrite) NSInteger status;
 
 @property (nonatomic, strong) IBOutlet UIImageView *cellImage;
+@property (nonatomic, strong) id<TableCellDelegate> delegate;
 
+@property (nonatomic, strong) UIImage *numberImage;
 
-@property (nonatomic, strong) id  delegate;
+/*
+ @property (nonatomic, strong) UIImage *upImg;
+ @property (nonatomic, strong) UIImage *downImg;
+ @property (nonatomic, strong) UIImage *upImgLight;
+ @property (nonatomic, strong) UIImage *downImgLight;
+ */
 
 
 @end

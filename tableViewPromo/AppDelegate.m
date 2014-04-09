@@ -27,6 +27,9 @@
       return [vc supportedInterfaceOrientations];
     
   }
+    
+    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+
   return UIInterfaceOrientationMaskPortrait; //return default value
 }
 
