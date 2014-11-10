@@ -16,27 +16,26 @@
 
 @implementation WebViewController
 @synthesize urlName;
+@synthesize title;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-  
+    
     NSURL *url = [[NSURL alloc] initWithString:urlName];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     [self.webView loadRequest:request];
-
+    
     self.webView.scalesPageToFit = YES;
     self.webView.delegate = self;
     
-    UISwipeGestureRecognizer * swipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeLeft:)];
-    [swipeRecognizer setDelegate:self];
-    [swipeRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
-    [self.webView addGestureRecognizer:swipeRecognizer];
     
 }
 
 - (IBAction)twitterButtonTapped:(id)sender {
-
+    
+    NSLog(@"Button Tapped");
+    
     NSString *urlRequest = [NSString stringWithFormat:@"http://tinyurl.com/api-create.php?url=%@", urlName];
     
     NSURLRequest *myR = [NSURLRequest requestWithURL:[NSURL URLWithString:urlRequest]];
@@ -47,20 +46,21 @@
     NSString *tinyString = [[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding];
     
     SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+    NSString *toPost = [NSString stringWithFormat:@"%@ #rNBA @NBA_Reddit", tinyString];
     
-    NSString *toPost = [NSString stringWithFormat:@"%@ #rNBA #SlashNBA", tinyString];
+    NSUInteger linkLength = [toPost length];
+    NSUInteger goal = 140 - linkLength - 3;
+    NSUInteger titleLength = [title length];
+    
+    if (titleLength > goal) {
+        title = [title substringToIndex:goal-3];
+        title = [NSString stringWithFormat:@"%@%@", title, @"..."];
+    }
+    toPost = [NSString stringWithFormat:@"%@%@%@ %@", @"\"", title, @"\"", toPost];
+    
     [tweetSheet setInitialText:toPost];
     [self presentViewController:tweetSheet animated:YES completion:nil];
-
-}
-
-- (void) onSwipeLeft:(UISwipeGestureRecognizer *)recognizer
-{
-    if (recognizer.state == UIGestureRecognizerStateEnded)
-    {
-            //[self performSegueWithIdentifier: @"pushToTableView" sender: self];
-        
-    }
+    
 }
 
 

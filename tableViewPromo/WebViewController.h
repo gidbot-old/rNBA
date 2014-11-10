@@ -11,6 +11,7 @@
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (nonatomic, strong) NSString *urlName;
+@property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 
 

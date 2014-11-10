@@ -10,6 +10,8 @@
 	<string>tableViewPromo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>3C734E45628DB30B05D8E72D8438EE6A392663DE</key>
+		<string>https://github.com/gbrosenthal/rNBA.git</string>
 		<key>59F9DB55-F022-43AC-A9D7-FFC8D30CA150</key>
 		<string>https://github.com/gbrosenthal/rNBA.git</string>
 	</dict>
@@ -17,15 +19,17 @@
 	<string>tableViewPromo.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>59F9DB55-F022-43AC-A9D7-FFC8D30CA150</key>
+		<key>3C734E45628DB30B05D8E72D8438EE6A392663DE</key>
 		<string>..</string>
+		<key>59F9DB55-F022-43AC-A9D7-FFC8D30CA150</key>
+		<string>../../gidNBA</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/gbrosenthal/rNBA.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>59F9DB55-F022-43AC-A9D7-FFC8D30CA150</string>
+	<string>3C734E45628DB30B05D8E72D8438EE6A392663DE</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -35,6 +39,14 @@
 			<string>59F9DB55-F022-43AC-A9D7-FFC8D30CA150</string>
 			<key>IDESourceControlWCCName</key>
 			<string>gidNBA</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3C734E45628DB30B05D8E72D8438EE6A392663DE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>rNBA</string>
 		</dict>
 	</array>
 </dict>
